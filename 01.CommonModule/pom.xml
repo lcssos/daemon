@@ -10,6 +10,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>01.CommonModule</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>0101.System</module>
+        <module>0102.Enterprise</module>
+        <module>0103.Dubbo</module>
+    </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>cn.martin</groupId>
+            <artifactId>0101.System</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>
