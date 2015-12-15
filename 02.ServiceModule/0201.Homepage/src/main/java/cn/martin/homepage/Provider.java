@@ -3,6 +3,7 @@ package cn.martin.homepage;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.BufferedReader;
@@ -31,7 +32,8 @@ public class Provider {
     }
 
     static void startService() {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        context.start();
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+//        context.start();
+        context.registerShutdownHook();
     }
 }

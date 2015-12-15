@@ -16,39 +16,5 @@
     </modules>
 
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>dubbo</artifactId>
-                <version>2.5.3</version>
-                <!--<scope>provided</scope>-->
-                <!-- 排除不必要的依赖 -->
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>spring</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <artifactId>netty</artifactId>
-                        <groupId>org.jboss.netty</groupId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>com.101tec</groupId>
-                <artifactId>zkclient</artifactId>
-                <version>0.7</version>
-            </dependency>
-
-            <dependency>
-                <groupId>commons-daemon</groupId>
-                <artifactId>commons-daemon</artifactId>
-                <version>1.0.15</version>
-                <!--<scope>provided</scope>-->
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
 </project>

@@ -112,7 +112,7 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <port>3099</port>
+                    <port>2099</port>
                     <path>/homepage_service</path>
                     <uriEncoding>UTF-8</uriEncoding>
                     <finalName>homepage_service</finalName>
