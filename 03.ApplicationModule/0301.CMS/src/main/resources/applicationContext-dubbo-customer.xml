@@ -16,7 +16,7 @@
     <dubbo:application name="cms-app"  />
 
     <!-- 使用multicast广播注册中心暴露服务地址 -->
-    <dubbo:registry address="zookeeper://123.56.92.48:2181" register="false" />
+    <dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" register="false" />
 
 
     <!-- 生成远程服务代理，可以和本地bean一样使用demoService -->

@@ -9,7 +9,7 @@
         http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <!--<context:property-placeholder ignore-unresolvable="true" location="classpath:dubbo.properties"/>-->
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:dubbo.properties"/>
 
     <!--<context:component-scan-->
     <!--base-package="com.cyicai.example.service"></context:component-scan>-->
@@ -18,7 +18,7 @@
     <dubbo:application name="homepage-service"/>
     <!-- 使用multicast广播注册中心暴露服务地址 -->
     <!--注册中心 -->
-    <dubbo:registry address="zookeeper://123.56.92.48:2181"/>
+    <dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}"/>
     <!--监控中心 -->
     <dubbo:monitor protocol="registry"/>
     <!-- 多协议配置，dubbo为默认协议，port=-1表示随机开启空闲端口 -->
