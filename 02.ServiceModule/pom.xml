@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>0201.Homepage</module>
+        <module>0202.Authentication</module>
     </modules>
 
 
