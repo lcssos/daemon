@@ -5,7 +5,8 @@
 <body>
 <h2>Hello World2!</h2>
 <br/><br/>
-<a href="<c:url value="/logout" />" >注销</a>
+<a href="https://sso.wsria.com:8443/cas/logout?service=https://client.wsria.com:9443/shiro_app/index" >注销1</a>
+<a href="<c:url value="/logout" />" >注销2</a>
 
 </body>
 </html>

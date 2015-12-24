@@ -16,6 +16,7 @@
         <module>0302.CAS</module>
         <module>0303.Security</module>
         <module>0304.Shiro</module>
+        <module>0305.CAS_SERVER</module>
     </modules>
 
     <dependencyManagement>
