@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Created by lcssos on 15/12/24.
  */
 @Service
-@Transactional
+//@Transactional
 public class AuthentictionServiceImpl implements AuthenticationService {
     @Override
     public boolean check(String username, String password) {

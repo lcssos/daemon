@@ -111,7 +111,7 @@
         <!--</property>-->
     <!--</bean>-->
     <bean id="primaryAuthenticationHandler" class="cn.martin.cas.authentication.DubboAuthenticationHandler">
-
+        <property name="authcService" ref="authcService" />
     </bean>
 
     <!-- Required for proxy ticket mechanism -->
