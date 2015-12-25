@@ -33,23 +33,23 @@
 </div>
 
 
-<c:if test="${not empty registeredService}">
-    <c:set var="registeredServiceLogo" value="images/webapp.png"/>
-    <c:set var="registeredServiceName" value="${registeredService.name}"/>
-    <c:set var="registeredServiceDescription" value="${registeredService.description}"/>
+<%--<c:if test="${not empty registeredService}">--%>
+    <%--<c:set var="registeredServiceLogo" value="images/webapp.png"/>--%>
+    <%--<c:set var="registeredServiceName" value="${registeredService.name}"/>--%>
+    <%--<c:set var="registeredServiceDescription" value="${registeredService.description}"/>--%>
 
-    <c:choose>
-        <c:when test="${not empty mduiContext}">
-            <c:if test="${not empty mduiContext.logoUrl}">
-                <c:set var="registeredServiceLogo" value="${mduiContext.logoUrl}"/>
-            </c:if>
-            <c:set var="registeredServiceName" value="${mduiContext.displayName}"/>
-            <c:set var="registeredServiceDescription" value="${mduiContext.description}"/>
-        </c:when>
-        <c:when test="${not empty registeredService.logo}">
-            <c:set var="registeredServiceLogo" value="${registeredService.logo}"/>
-        </c:when>
-    </c:choose>
+    <%--<c:choose>--%>
+        <%--<c:when test="${not empty mduiContext}">--%>
+            <%--<c:if test="${not empty mduiContext.logoUrl}">--%>
+                <%--<c:set var="registeredServiceLogo" value="${mduiContext.logoUrl}"/>--%>
+            <%--</c:if>--%>
+            <%--<c:set var="registeredServiceName" value="${mduiContext.displayName}"/>--%>
+            <%--<c:set var="registeredServiceDescription" value="${mduiContext.description}"/>--%>
+        <%--</c:when>--%>
+        <%--<c:when test="${not empty registeredService.logo}">--%>
+            <%--<c:set var="registeredServiceLogo" value="${registeredService.logo}"/>--%>
+        <%--</c:when>--%>
+    <%--</c:choose>--%>
 
     <%--<div id="serviceui" class="serviceinfo">--%>
         <%--<table>--%>
@@ -62,8 +62,8 @@
             <%--</tr>--%>
         <%--</table>--%>
     <%--</div>--%>
-    <p/>
-</c:if>
+    <%--<p/>--%>
+<%--</c:if>--%>
 
 <div class="box" id="login">
     <form:form method="post" id="fm1" commandName="${commandName}" htmlEscape="true">
