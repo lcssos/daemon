@@ -8,6 +8,8 @@ import org.jasig.cas.authentication.handler.support.AbstractUsernamePasswordAuth
 
 import javax.security.auth.login.AccountNotFoundException;
 import java.security.GeneralSecurityException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by lcssos on 15/12/24.
@@ -34,6 +36,10 @@ public class DubboAuthenticationHandler extends AbstractUsernamePasswordAuthenti
             throw new AccountNotFoundException(credential.getUsername() + " not found in dubbo.");
         }
 
-        return createHandlerResult(credential, principalFactory.createPrincipal(credential.getUsername()),null);
+        Map<String,Object> map = new HashMap<>();
+        map.put("permission","P_ADMIN");
+        map.put("role","R_ADMIN");
+
+        return createHandlerResult(credential, principalFactory.createPrincipal(credential.getUsername(),map),null);
     }
 }

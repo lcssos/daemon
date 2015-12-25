@@ -14,6 +14,8 @@ public class ShiroCasRealm extends CasRealm {
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
+//        principalCollection.getPrimaryPrincipal();
+
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         return info;
     }

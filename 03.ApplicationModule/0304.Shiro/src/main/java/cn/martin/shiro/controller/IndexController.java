@@ -15,7 +15,9 @@ public class IndexController {
     @RequestMapping("/index")
     public String index(){
         Subject subject = SecurityUtils.getSubject();
-        Session session = subject.getSession();
+        boolean b = subject.isPermitted("P_USER");
+        System.out.println(b);
+
         return "index";
     }
 }

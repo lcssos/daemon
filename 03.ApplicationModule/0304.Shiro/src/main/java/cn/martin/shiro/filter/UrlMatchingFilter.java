@@ -34,9 +34,9 @@ public class UrlMatchingFilter extends AccessControlFilter {
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) throws Exception {
 
         String path = ((HttpServletRequest) request).getServletPath();
-        System.out.println(path);
+//        System.out.println(path);
         path = WebUtils.getRequestUri((HttpServletRequest)request);
-        System.out.println(path);
+//        System.out.println(path);
 
 //        System.out.println("url matches,config is " + Arrays.toString((String[])mappedValue));
 

@@ -110,6 +110,7 @@
             <!--</map>-->
         <!--</property>-->
     <!--</bean>-->
+    <!--登录验证-->
     <bean id="primaryAuthenticationHandler" class="cn.martin.cas.authentication.DubboAuthenticationHandler">
         <property name="authcService" ref="authcService" />
     </bean>
@@ -131,22 +132,24 @@
     Bean that defines the attributes that a service may return.  This example uses the Stub/Mock version.  A real implementation
     may go against a database or LDAP server.  The id should remain "attributeRepository" though.
     +-->
-    <bean id="attributeRepository" class="org.jasig.services.persondir.support.NamedStubPersonAttributeDao"
-          p:backingMap-ref="attrRepoBackingMap" />
+    <!--返回对象增加额外的属性-->
+    <bean id="attributeRepository" class="cn.martin.cas.persondir.DubboStubPersonAttributeDao"></bean>
+    <!--<bean id="attributeRepository" class="org.jasig.services.persondir.support.NamedStubPersonAttributeDao"-->
+          <!--p:backingMap-ref="attrRepoBackingMap" />-->
 
-    <util:map id="attrRepoBackingMap">
-        <entry key="uid" value="uid" />
-        <entry key="eduPersonAffiliation" value="eduPersonAffiliation" />
-        <entry key="groupMembership" value="groupMembership" />
-        <entry>
-            <key><value>memberOf</value></key>
-            <list>
-                <value>faculty</value>
-                <value>staff</value>
-                <value>org</value>
-            </list>
-        </entry>
-    </util:map>
+    <!--<util:map id="attrRepoBackingMap">-->
+        <!--<entry key="uid" value="uid" />-->
+        <!--<entry key="eduPersonAffiliation" value="eduPersonAffiliation" />-->
+        <!--<entry key="groupMembership" value="groupMembership" />-->
+        <!--<entry>-->
+            <!--<key><value>memberOf</value></key>-->
+            <!--<list>-->
+                <!--<value>faculty</value>-->
+                <!--<value>staff</value>-->
+                <!--<value>org</value>-->
+            <!--</list>-->
+        <!--</entry>-->
+    <!--</util:map>-->
 
     <bean id="serviceRegistryDao" class="org.jasig.cas.services.JsonServiceRegistryDao"
           c:configDirectory="${service.registry.config.location:classpath:services}" />

@@ -12,7 +12,11 @@
     <!-- 項目自定义的Realm, 所有accountService依赖的dao都需要用depends-on声明 -->
     <bean id="shiroDbRealm" class="cn.martin.shiro.realm.ShiroDbRealm"></bean>
 
-    <bean id="shiroCasRealm" class="cn.martin.shiro.realm.ShiroCasRealm">
+    <!--<bean id="shiroCasRealm" class="cn.martin.shiro.realm.ShiroCasRealm">-->
+        <!--<property name="casServerUrlPrefix" value="https://sso.wsria.com:8443/cas"/>-->
+        <!--<property name="casService" value="https://client.wsria.com:9443/shiro_app/cas" />-->
+    <!--</bean>-->
+    <bean id="shiroCasRealm" class="org.apache.shiro.cas.CasRealm">
         <property name="casServerUrlPrefix" value="https://sso.wsria.com:8443/cas"/>
         <property name="casService" value="https://client.wsria.com:9443/shiro_app/cas" />
     </bean>
