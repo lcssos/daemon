@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+    <!--缺省装饰-->
+    <mapping decorator="/decorator.jsp"/>
+
+    <!--指定装饰-->
+    <mapping path="/admin/*" decorator="/another-decorator.html"/>
+
+    <!--多次装饰-->
+    <mapping>
+        <path>/articles/*</path>
+        <decorator>/decorator.html</decorator>
+        <decorator>/another-decorator.html</decorator>
+    </mapping>
+
+    <!--不进行装饰-->
+    <mapping path="/javadoc/*" exclue="true"/>
+
+    <!--缺省只装饰text/html-->
+    <mime-type>text/html</mime-type>
+
+</sitemesh>

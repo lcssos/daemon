@@ -17,6 +17,9 @@
         <module>0303.Security</module>
         <module>0304.Shiro</module>
         <module>0305.CAS_SERVER</module>
+        <module>0306.WebFlow</module>
+        <module>0307.SiteMesh</module>
+        <module>0308.Log4j</module>
     </modules>
 
     <dependencyManagement>
