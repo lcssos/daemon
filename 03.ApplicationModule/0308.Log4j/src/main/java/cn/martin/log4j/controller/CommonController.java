@@ -15,7 +15,7 @@ public class CommonController {
 
     @RequestMapping("/common")
     public String common(){
-        logger.info("打印Common Log日志");
+        logger.debug("打印Common Log日志");
         return "index";
     }
 }

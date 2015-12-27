@@ -16,7 +16,7 @@ public class Slf4jController {
     @RequestMapping("/slf4j")
     public String slf4j(){
 
-        logger.info("打印Slf4j日志");
+        logger.debug("打印Slf4j日志");
 
         return "index";
     }
