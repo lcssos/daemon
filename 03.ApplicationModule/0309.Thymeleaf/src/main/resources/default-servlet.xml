@@ -63,26 +63,61 @@
         <property name="additionalDialects">
             <set>
                 <bean class="org.thymeleaf.spring4.dialect.SpringStandardDialect"/>
-                <!--<bean class="nz.net.ultraq.thymeleaf.LayoutDialect"/>-->
+                <bean class="nz.net.ultraq.thymeleaf.LayoutDialect"/>
                 <!--<bean class="org.thymeleaf.extras.conditionalcomments.dialect.ConditionalCommentsDialect"/>-->
             </set>
         </property>
     </bean>
 
-    <bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
-        <property name="templateEngine" ref="templateEngine" />
-        <property name="order" value="3" />
-        <property name="characterEncoding" value="UTF-8"/>
-        <property name="viewNames" value="home" />
-    </bean>
+    <!--<bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">-->
+        <!--<property name="templateEngine" ref="templateEngine" />-->
+        <!--&lt;!&ndash;<property name="order" value="3" />&ndash;&gt;-->
+        <!--<property name="characterEncoding" value="UTF-8"/>-->
+        <!--<property name="viewNames">-->
+            <!--<array>-->
+                <!--<value>home</value>-->
+                <!--<value>Content*</value>-->
+                <!--<value>layout*</value>-->
+            <!--</array>-->
+        <!--</property>-->
+    <!--</bean>-->
 
 
 	<!-- 对模型视图名称的解析，在请求时模型视图名称添加前后缀 -->
-	<bean id="viewResolver2" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-		p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" p:order="2" p:viewNames="index" />
+	<!--<bean id="viewResolver2" class="org.springframework.web.servlet.view.InternalResourceViewResolver"-->
+		<!--p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" p:order="2" p:viewNames="index" />-->
 
     <!--<bean id="viewResolver1"-->
           <!--class="org.springframework.web.servlet.view.InternalResourceViewResolver"-->
           <!--p:prefix="/" p:suffix=".html" p:order="1" />-->
+
+    <!-- REST 内容协商 -->
+    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="mediaTypes" >
+            <value>
+                json=application/json
+                <!--yson=application/json-->
+                htm=text/html
+                <!--xml=application/xml-->
+                html=text/html
+            </value>
+        </property>
+        <property name="defaultContentType" value="text/html"/>
+        <property name="ignoreAcceptHeader" value="true"/>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="order" value="1"/>
+        <property name="contentNegotiationManager" ref="contentNegotiationManager"/>
+        <property name="viewResolvers">
+            <list>
+                <!-- Thymeleaf 与 Spring 整合 -->
+                <bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+                    <property name="templateEngine" ref="templateEngine" />
+                    <property name="characterEncoding" value="UTF-8"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
 
 </beans>
