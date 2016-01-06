@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Bean头部 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+
+    <!-- 静态资源访问 -->
+    <!--<mvc:resources mapping="/img/**" location="/img/" />-->
+    <!--<mvc:resources mapping="/js/**" location="/js/" />-->
+    <!--<mvc:resources mapping="/extjs/**" location="/extjs/" cache-period="3600" />-->
+    <!--<mvc:resources mapping="/css/**" location="/css/" />-->
+
+    <!--<mvc:resources mapping="/hello.html" location="/hello.html" />-->
+
+    <mvc:annotation-driven/>
+    <context:component-scan base-package="cn.martin.**.controller"/>
+
+
+    <!--国际化消息-->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="Messages" />
+    </bean>
+
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="formatters">
+            <set>
+                <bean class="cn.martin.tf.conversion.DateFormatter" />
+            </set>
+        </property>
+    </bean>
+
+
+
+    <!--<bean id="stringHttpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter">-->
+        <!--<property name="supportedMediaTypes">-->
+            <!--<list>-->
+                <!--<value>text/plain;charset=UTF-8</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+
+    <!--&lt;!&ndash; 避免IE执行Ajax时，返回Json出现下载文件 &ndash;&gt;-->
+    <!--<bean id="mappingJacksonHttpMessageConverter"-->
+          <!--class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
+        <!--<property name="supportedMediaTypes">-->
+            <!--<list>-->
+                <!--<value>text/html;charset=UTF-8</value>-->
+                <!--<value>application/json;charset=UTF-8</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
+        <!--<property name="messageConverters">-->
+            <!--<list>-->
+                <!--<ref bean="stringHttpMessageConverter"></ref>-->
+                <!--<ref bean="mappingJacksonHttpMessageConverter"></ref>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+
+    <!--<bean id="templateResolver" class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver">-->
+    <!--<property name="prefix" value="/WEB-INF/views/" />-->
+    <!--<property name="suffix" value=".html" />-->
+    <!--<property name="templateMode" value="HTML5" />-->
+    <!--<property name="characterEncoding" value="UTF-8"/>-->
+    <!--</bean>-->
+
+
+
+    <!-- REST 内容协商 -->
+    <!--<bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">-->
+    <!--<property name="mediaTypes" >-->
+    <!--<value>-->
+    <!--json=application/json-->
+    <!--&lt;!&ndash;yson=application/json&ndash;&gt;-->
+    <!--htm=text/html-->
+    <!--&lt;!&ndash;xml=application/xml&ndash;&gt;-->
+    <!--html=text/html-->
+    <!--</value>-->
+    <!--</property>-->
+    <!--<property name="defaultContentType" value="text/html"/>-->
+    <!--<property name="ignoreAcceptHeader" value="true"/>-->
+    <!--</bean>-->
+    <!--<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">-->
+    <!--<property name="order" value="1"/>-->
+    <!--<property name="contentNegotiationManager" ref="contentNegotiationManager"/>-->
+    <!--<property name="viewResolvers">-->
+    <!--<list>-->
+    <!--&lt;!&ndash; Thymeleaf 与 Spring 整合 &ndash;&gt;-->
+    <!--<bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">-->
+    <!--<property name="templateEngine" ref="templateEngine" />-->
+    <!--<property name="characterEncoding" value="UTF-8"/>-->
+    <!--</bean>-->
+    <!--</list>-->
+    <!--</property>-->
+    <!--</bean>-->
+
+
+
+
+    <bean id="templateResolver" class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".html"/>
+        <property name="templateMode" value="HTML5"/>
+        <property name="characterEncoding" value="UTF-8"/>
+        <property name="cacheable" value="false" />
+    </bean>
+
+    <bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
+        <property name="templateResolver" ref="templateResolver"/>
+        <!-- 附加方言 -->
+        <property name="additionalDialects">
+            <set>
+                <bean class="org.thymeleaf.spring4.dialect.SpringStandardDialect"/>
+                <bean class="nz.net.ultraq.thymeleaf.LayoutDialect"/>
+            </set>
+        </property>
+    </bean>
+
+    <bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+        <property name="templateEngine" ref="templateEngine"/>
+        <property name="characterEncoding" value="UTF-8"/>
+        <!--<property name="viewNames">-->
+            <!--<array>-->
+                <!--<value>home</value>-->
+                <!--<value>Content*</value>-->
+                <!--<value>layout*</value>-->
+                <!--<value>user*</value>-->
+            <!--</array>-->
+        <!--</property>-->
+    </bean>
+
+
+
+
+
+</beans>

@@ -21,6 +21,7 @@
         <module>0307.SiteMesh</module>
         <module>0308.Log4j</module>
         <module>0309.Thymeleaf</module>
+        <module>0310.Groovy</module>
     </modules>
 
     <dependencyManagement>

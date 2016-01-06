@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>用户详情</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+<body>
+
+<!--变量引用-->
+<input type="text" name="userName" value="James Carrot" th:value="${user.name}" />
+
+<br/>
+<!--超链接-->
+<a th:href="@{/home.html}">首页</a>
+
+<!--i18n,国际化-->
+<p th:text="#{home.welcome}">Welcome to our grocery store!</p>
+
+
+<br/>
+模板名称 <label th:text="${execInfo.templateName}"> </label>
+
+<br/>
+当前时间<label th:text="${execInfo.now}"></label>
+
+<!--国际化及替换-->
+<p th:text="#{user.welcome(${user.name})}">Welcome</p>
+
+<!--*号用法-->
+<div th:object="${user}">
+    <p>last name: <span th:text="*{lastName}">Pepper</span>.</p>
+</div>
+
+<p>
+    Now you are looking at a <span th:text="'working web application'">template file</span>.
+</p>
+
+
+</body>
+</html>
