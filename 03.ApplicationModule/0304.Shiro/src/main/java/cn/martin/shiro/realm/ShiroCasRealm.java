@@ -34,6 +34,9 @@ public class ShiroCasRealm extends CasRealm {
             return null;
         }
 
+        System.out.println("client 开始执行登录操作!");
+
+
         String ticket = (String)casToken.getCredentials();
         if (!StringUtils.hasText(ticket)) {
             return null;

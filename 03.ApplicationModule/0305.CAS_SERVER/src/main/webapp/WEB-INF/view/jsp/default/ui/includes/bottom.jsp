@@ -22,12 +22,12 @@
 
 </div> <!-- END #content -->
 
-<%--<footer>--%>
+<footer>
     <%--<div id="copyright">--%>
         <%--<p><spring:message code="copyright" /></p>--%>
         <%--<p>Powered by <a href="http://www.apereo.org/cas">Apereo Central Authentication Service <%=org.jasig.cas.CasVersion.getVersion()%></a></p>--%>
     <%--</div>--%>
-<%--</footer>--%>
+</footer>
 
 </div> <!-- END #container -->
 <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"></script>--%>

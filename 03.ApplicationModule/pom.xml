@@ -22,6 +22,7 @@
         <module>0308.Log4j</module>
         <module>0309.Thymeleaf</module>
         <module>0310.Groovy</module>
+        <module>0311.Elasticsearch</module>
     </modules>
 
     <dependencyManagement>

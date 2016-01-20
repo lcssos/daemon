@@ -1,0 +1,11 @@
+{
+  "@class" : "org.jasig.cas.services.RegexRegisteredService",
+  "serviceId" : "^http://client.martin.com.+",
+  "name" : "martin_cas_app",
+  "id" : 3004,
+  "description" : "client cas application",
+  "proxyPolicy" : {
+    "@class" : "org.jasig.cas.services.RegexMatchingRegisteredServiceProxyPolicy",
+    "pattern" : "^http://client.martin.com.+"
+  }
+}

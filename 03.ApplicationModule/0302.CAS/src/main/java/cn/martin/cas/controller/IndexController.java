@@ -20,7 +20,7 @@ public class IndexController {
     @RequestMapping("/index")
     public String index(HttpServletRequest request, HttpSession session){
 
-        request.getRemoteUser();
+//        request.getRemoteUser();
 
         logger.info("xxx");
 
