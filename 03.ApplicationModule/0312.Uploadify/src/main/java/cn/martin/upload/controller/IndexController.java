@@ -13,4 +13,9 @@ public class IndexController {
     public String uploadify(){
         return "uploadify";
     }
+
+    @RequestMapping(value = "/webuploader")
+    public String webuploader(){
+        return "webuploader";
+    }
 }

@@ -68,9 +68,9 @@
         <!--&lt;!&ndash;<appender-ref ref="MAIL"/>&ndash;&gt;-->
     <!--</category>-->
 
-    <logger name="org.springframework">
-        <level value="ERROR" />
-    </logger>
+    <!--<logger name="org.springframework">-->
+        <!--<level value="ERROR" />-->
+    <!--</logger>-->
 
     <root>
         <priority value="DEBUG"/>
