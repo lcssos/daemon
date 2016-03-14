@@ -23,6 +23,7 @@
         <module>0309.Thymeleaf</module>
         <module>0310.Groovy</module>
         <module>0311.Elasticsearch</module>
+        <module>0312.Uploadify</module>
     </modules>
 
     <dependencyManagement>
