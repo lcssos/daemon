@@ -49,7 +49,14 @@
 
             // 选择文件的按钮。可选。
             // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-            pick: '#picker'
+            pick: '#picker',
+
+            // 开起分片上传。
+            chunked: true,
+
+            formData:{
+                id:'123'
+            }
         });
 
         // 当有文件添加进来的时候
@@ -58,6 +65,16 @@
                     '<h4 class="info">' + file.name + '</h4>' +
                     '<p class="state">等待上传...</p>' +
                     '</div>' );
+
+            uploader.md5File( file )
+                    // 及时显示进度
+                    .progress(function(percentage) {
+                        console.log('Percentage:', percentage);
+                    })
+                    // 完成
+                    .then(function(val) {
+                        console.log('md5 result:', val);
+                    });
         });
 
         // 文件上传过程中创建进度条实时显示。

@@ -1,6 +1,8 @@
 package cn.martin.upload.controller;
 
 import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,15 +28,29 @@ import java.util.Random;
 @RequestMapping("/webupload")
 public class WebUploaderController {
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    public String upload(MultipartFile file) {
+    Logger logger = LoggerFactory.getLogger(WebUploaderController.class);
 
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public String upload(MultipartFile file,
+                         @RequestParam(required = false) String name,
+                         @RequestParam(required = false) Integer chunk,
+                         @RequestParam(required = false) Integer chunks,
+                         @RequestParam(required = false) String formData) {
+
+        logger.info("name:"+name);
+
+//        String fileName = file.getOriginalFilename();
+//        logger.info("fileName:"+fileName);
+
+        logger.info("chunck:"+chunk);
+        logger.info("chuncks:"+chunks);
 //        file.getInputStream();
 
-        File uploadFile = new File("aaa.xtf");
+        File uploadFile = new File(name);
         try {
             OutputStream os = new FileOutputStream(uploadFile);
             IOUtils.copy(file.getInputStream(),os);
+            os.close();
 
         } catch (IOException e) {
             e.printStackTrace();
