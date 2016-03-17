@@ -3,6 +3,9 @@ package cn.martin.upload.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.UUID;
+
 /**
  * Created by Administrator on 2016/3/13.
  */
@@ -15,7 +18,8 @@ public class IndexController {
     }
 
     @RequestMapping(value = "/webuploader")
-    public String webuploader(){
+    public String webuploader(HttpServletRequest request){
+        request.setAttribute("uuid", UUID.randomUUID().toString());
         return "webuploader";
     }
 }

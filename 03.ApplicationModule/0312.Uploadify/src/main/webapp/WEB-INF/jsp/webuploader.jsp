@@ -36,6 +36,8 @@
                 state = 'pending',
                 uploader;
 
+//        var guid = Webuploader.Base.guid();
+
         uploader = WebUploader.create({
 
             // 不压缩image
@@ -55,7 +57,8 @@
             chunked: true,
 
             formData:{
-                id:'123'
+                id:'123',
+                guid:'${uuid}'
             }
         });
 
