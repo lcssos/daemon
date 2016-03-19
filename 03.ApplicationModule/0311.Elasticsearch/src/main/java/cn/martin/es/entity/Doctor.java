@@ -1,5 +1,6 @@
 package cn.martin.es.entity;
 
+import io.searchbox.annotations.JestId;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Doctor {
+    @JestId
     private String doctorid;
     private String name;
     private String hospital;
