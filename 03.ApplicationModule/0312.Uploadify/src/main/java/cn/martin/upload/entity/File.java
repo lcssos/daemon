@@ -3,6 +3,7 @@ package cn.martin.upload.entity;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Date;
  */
 @Getter
 @Setter
-public class File {
+public class File implements Serializable {
     private Long id;
     private Integer chunks;
     private String path;

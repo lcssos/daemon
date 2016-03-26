@@ -24,6 +24,7 @@
         <module>0310.Groovy</module>
         <module>0311.Elasticsearch</module>
         <module>0312.Uploadify</module>
+        <module>0313.RedisCache</module>
     </modules>
 
     <dependencyManagement>
