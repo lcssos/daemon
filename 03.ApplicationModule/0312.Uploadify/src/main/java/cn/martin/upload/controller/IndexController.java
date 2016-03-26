@@ -12,14 +12,23 @@ import java.util.UUID;
 @Controller
 public class IndexController {
 
+
     @RequestMapping(value = "/uploadify")
     public String uploadify(){
         return "uploadify";
     }
 
+
     @RequestMapping(value = "/webuploader")
     public String webuploader(HttpServletRequest request){
         request.setAttribute("uuid", UUID.randomUUID().toString());
         return "webuploader";
+    }
+
+
+    @RequestMapping(value = "/webuploader2")
+    public String webuploader2(HttpServletRequest request){
+//        request.setAttribute("uuid", UUID.randomUUID().toString());
+        return "webuploader2";
     }
 }
