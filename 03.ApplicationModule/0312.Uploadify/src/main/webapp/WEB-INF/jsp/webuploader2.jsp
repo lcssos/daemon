@@ -64,6 +64,8 @@
         "after-send-file": "afterSendFile"
     }, {
         beforeSendFile: function (file) {
+            debugger;
+
             console.log('beforeSendFile');
             var task = new $.Deferred();
             var start = new Date().getTime();
@@ -91,12 +93,12 @@
                     }else{
                         task.resolve();
                         //拿到上传文件的唯一名称，用于断点续传
-                        uniqueFileName = md5(data.busiId+file.name+file.type+file.lastModifiedDate+file.size);
+                        uniqueFileName = md5(file.name+file.type+file.lastModifiedDate+file.size);
                     }
                 }, function (jqXHR, textStatus, errorThrown) {    //任何形式的验证失败，都触发重新上传
                     task.resolve();
                     //拿到上传文件的唯一名称，用于断点续传
-                    uniqueFileName = md5(data.busiId+file.name+file.type+file.lastModifiedDate+file.size);
+                    uniqueFileName = md5(file.name+file.type+file.lastModifiedDate+file.size);
                 });
             })
             return $.when(task);
@@ -110,7 +112,7 @@
                 type: "POST"
                 , url: '<c:url value="/webupload2/chunkCheck" />'
                 , data: {
-                    name: uniqueFileName
+                    uniqueName: uniqueFileName
                     , chunkIndex: block.chunk
                     , size: block.end - block.start
                 }
@@ -139,7 +141,7 @@
                     type: "POST"
                     , url: '<c:url value="/webupload2/chunksMerge" />'
                     , data: {
-                        name: uniqueFileName
+                        uniqueName: uniqueFileName
                         , chunks: chunksTotal
                         , ext: file.ext
                         , md5: data.md5
@@ -236,9 +238,7 @@
             }
             , compress: false
             , prepareNextFile: true
-            , formData: function () {
-                return $.extend(true, {}, data);
-            }
+            , formData: data
             , duplicate: true
         });
 
