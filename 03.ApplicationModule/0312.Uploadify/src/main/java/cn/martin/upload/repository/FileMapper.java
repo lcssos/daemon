@@ -7,4 +7,6 @@ import cn.martin.upload.entity.File;
  */
 public interface FileMapper {
     File selectByPrimaryKey(Long id);
+    File selectByMd5(String md5);
+
 }
