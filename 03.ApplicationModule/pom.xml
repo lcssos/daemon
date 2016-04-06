@@ -25,6 +25,8 @@
         <module>0311.Elasticsearch</module>
         <module>0312.Uploadify</module>
         <module>0313.RedisCache</module>
+        <module>0314.FreeMarker</module>
+        <module>0315.Druid</module>
     </modules>
 
     <dependencyManagement>
