@@ -26,7 +26,10 @@
         <module>0312.Uploadify</module>
         <module>0313.RedisCache</module>
         <module>0314.FreeMarker</module>
+        <module>0314.MongoDB</module>
         <module>0315.Druid</module>
+        <module>0316.Quartz</module>
+        <!--<module>0316.SpringBoot</module>-->
     </modules>
 
     <dependencyManagement>
