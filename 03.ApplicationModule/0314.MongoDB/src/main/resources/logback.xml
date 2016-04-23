@@ -8,7 +8,7 @@
     </appender>
 
     <appender name="MONGO" class="ch.qos.logback.contrib.mongodb.MongoDBLoggingEventAppender">
-        <uri>mongodb://root:191024abc@dds-2zea904862f26cb41.mongodb.rds.aliyuncs.com:3717,dds-2zea904862f26cb42.mongodb.rds.aliyuncs.com:3717/admin.adminlog?replicaSet=mgset-1075163</uri>
+        <uri>mongodb://root:191024abc@192.168.31.140:27017/admin.adminlog</uri>
     </appender>
 
     <root level="DEBUG">

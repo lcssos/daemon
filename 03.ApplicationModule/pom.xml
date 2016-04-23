@@ -29,6 +29,7 @@
         <module>0314.MongoDB</module>
         <module>0315.Druid</module>
         <module>0316.Quartz</module>
+        <module>0317.Elasticsearch</module>
         <!--<module>0316.SpringBoot</module>-->
     </modules>
 
