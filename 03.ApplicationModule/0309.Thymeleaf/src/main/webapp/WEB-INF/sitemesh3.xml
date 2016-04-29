@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+    <!--缺省装饰-->
+    <mapping decorator="/WEB-INF/views/layout/decorator.html"/>
+
+    <!--<mapping path="/index.html" decorator="/WEB-INF/views/layout/default.html" />-->
+
+    <!--不进行装饰-->
+    <mapping path="/static/*" exclue="true"/>
+    <!--<mapping path="/api/*" exclue="true"/>-->
+    <!--<mapping path="/*/view/*" exclue="true"/>-->
+    <!--<mapping path="/*/content/*" exclue="true"/>-->
+    <!--<mapping path="/account/login.jsp" exclue="true"/>-->
+    <!--<mapping path="/account/login" exclue="true"/>-->
+    <!--<mapping path="/login.jsp" exclue="true"/>-->
+    <!--<mapping path="/login" exclue="true"/>-->
+
+
+</sitemesh>

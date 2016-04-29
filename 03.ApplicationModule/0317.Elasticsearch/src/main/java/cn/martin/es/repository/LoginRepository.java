@@ -14,4 +14,6 @@ public interface LoginRepository extends ElasticsearchCrudRepository<Login,Long>
 
     Login findByUuid(Long uuid);
 
+//    List<Login> findByIntroductionLike(String search);
+
 }

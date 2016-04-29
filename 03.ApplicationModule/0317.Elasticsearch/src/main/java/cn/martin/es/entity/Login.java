@@ -3,12 +3,14 @@ package cn.martin.es.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldIndex;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -20,13 +22,12 @@ import java.util.Date;
 
 @Getter
 @Setter
-@Document(indexName = "user6",type = "login")
+@Document(indexName = "user9",type = "login",shards = 1, replicas = 0)
 public class Login implements Serializable {
 
     private static final long serialVersionUID = 4391566212487348042L;
 
-    private Long id;
-
+    @Id
     private Long uuid;
 
     @Field(index = FieldIndex.not_analyzed,type = FieldType.String)
@@ -52,5 +53,8 @@ public class Login implements Serializable {
 
     @Field(analyzer = "ik_max_word",searchAnalyzer = "ik_max_word",type = FieldType.String)
     private String comments;
+
+//    @Field(analyzer = "ik_max_word",searchAnalyzer = "ik_max_word",type = FieldType.Attachment)
+//    private String introduction;
 
 }

@@ -56,17 +56,41 @@
     <!--</appender>-->
 
     <!--通过<logger></logger>的定义可以将各个包中的类日志输出到不同的日志文件中-->
-    <logger name="com.litt2.log4j" additivity="false">
-        <level value="WARN"/>
-        <appender-ref ref="CONSOLE"/>
-    </logger>
+    <!--<logger name="com.litt2.log4j" additivity="false">-->
+        <!--<level value="WARN"/>-->
+        <!--<appender-ref ref="CONSOLE"/>-->
+    <!--</logger>-->
 
     <!--通过<category></category>的定义可以将各个包中的类日志输出到不同的日志文件中-->
-    <category name="cn.martin.log4j.controller">
-        <level value="DEBUG"/>
-        <appender-ref ref="FILE"/>
-        <!--<appender-ref ref="MAIL"/>-->
-    </category>
+    <!--<category name="cn.martin.log4j.controller">-->
+        <!--<level value="DEBUG"/>-->
+        <!--<appender-ref ref="FILE"/>-->
+        <!--&lt;!&ndash;<appender-ref ref="MAIL"/>&ndash;&gt;-->
+    <!--</category>-->
+
+    <logger name="org.springframework">
+        <level value="ERROR" />
+    </logger>
+
+    <logger name="druid.sql.Connection">
+        <level value="INFO" />
+    </logger>
+    <!--<logger name="druid.sql.ResultSet">-->
+        <!--<level value="INFO" />-->
+    <!--</logger>-->
+    <logger name="cn.martin.druid.repository.FileMapper">
+        <level value="INFO" />
+    </logger>
+    <logger name="org.mybatis.spring.SqlSessionUtils">
+        <level value="INFO" />
+    </logger>
+
+    <!--<logger name="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
+        <!--<level value="ERROR" />-->
+    <!--</logger>-->
+    <logger name="org.quartz">
+        <level value="ERROR" />
+    </logger>
 
     <root>
         <priority value="DEBUG"/>

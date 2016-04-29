@@ -16,6 +16,7 @@
         <module>0202.Authentication</module>
         <module>0203.SpringEL</module>
         <module>0204.TBSchedule</module>
+        <module>0205.DubboLog</module>
     </modules>
 
 

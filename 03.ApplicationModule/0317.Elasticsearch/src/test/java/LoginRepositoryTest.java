@@ -4,8 +4,13 @@ import com.alibaba.fastjson.JSON;
 import org.junit.Test;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
 
 import javax.annotation.Resource;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -42,7 +47,7 @@ public class LoginRepositoryTest extends AbstractJUnit4SpringContextTests {
 
 
         Login login3 = new Login();
-        login3.setUuid(2L);
+        login3.setUuid(3L);
         login3.setName("王五");
         login3.setLoginname("wangwu");
         login3.setEmail("wangwu@126.com");
@@ -64,4 +69,59 @@ public class LoginRepositoryTest extends AbstractJUnit4SpringContextTests {
         List<Login> logins = loginRepository.findByCommentsLike("山东");
         System.out.println(JSON.toJSONString(logins));
     }
+
+
+    @Test
+    public void test03() throws Exception {
+        Login login4 = new Login();
+        login4.setUuid(4L);
+        login4.setName("李六");
+        login4.setLoginname("liliu");
+        login4.setEmail("liliu@126.com");
+        login4.setPassword("lpwd");
+        login4.setComments("我是李六,我来自山东省");
+
+//        File file = new File("/Users/lcssos/Documents/刘昌胜个人简历2016.docx");
+//        login4.setIntroduction(encodeBase64File("/Users/lcssos/Documents/刘昌胜个人简历2016.docx"));
+
+        loginRepository.save(login4);
+    }
+
+
+    @Test
+    public void test04(){
+        List<Login> logins = loginRepository.findByCommentsLike("李六");
+        System.out.println(JSON.toJSONString(logins));
+    }
+
+
+    @Test
+    public void testDecode(){
+        try {
+            String s = decodeBase64("e1xydGYxXGFuc2kNCkxvcmVtIGlwc3VtIGRvbG9yIHNpdCBhbWV0DQpccGFyIH0=");
+            System.out.println(s);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static String encodeBase64File(String path) throws Exception {
+        File file = new File(path);;
+        FileInputStream inputFile = new FileInputStream(file);
+        byte[] buffer = new byte[(int) file.length()];
+        inputFile.read(buffer);
+        inputFile.close();
+
+//        new BASE64Decoder().decode
+
+        return new BASE64Encoder().encode(buffer);
+    }
+
+
+
+    public static String decodeBase64(String str) throws IOException {
+        return new String(new BASE64Decoder().decodeBuffer(str));
+    }
+
 }
